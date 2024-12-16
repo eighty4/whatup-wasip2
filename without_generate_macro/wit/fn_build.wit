@@ -1,0 +1,28 @@
+package l3:fn-build;
+
+world fn-parsing {
+    record dependency-import {
+        %package: string,
+        subpath: option<string>,
+    }
+
+    variant module-import {
+        package-dependency(dependency-import),
+    }
+
+    record parse-fn-spec {
+        project-dir: string,
+    }
+
+    record fn-entrypoint {
+        path: string
+    }
+
+    record parse-fn-manifest {
+        entrypoint: fn-entrypoint,
+//        imports: module-import,
+    }
+
+    export parse-fn: func(spec: parse-fn-spec) -> parse-fn-manifest;
+}
+
